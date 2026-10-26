@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover and register for campus events with Campus Event Hub." />
+  <title>Campus Event Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Campus Event Hub home">
+      <span class="brand-mark">C<span>+</span></span>
+      <span>campus<span class="brand-light">event hub</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#events">Explore events</a>
+      <a href="#about">About</a>
+      <a href="#my-registrations">My registrations <span class="nav-count" id="navCount">0</span></a>
+    </nav>
+    <a class="header-cta" href="#events">Find an event <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-glow glow-one"></div>
+      <div class="hero-glow glow-two"></div>
+      <div class="hero-content">
+        <div class="eyebrow"><span class="live-dot"></span> YOUR CAMPUS, YOUR COMMUNITY</div>
+        <h1>Make room for<br><span>something</span> <em>great.</em></h1>
+        <p class="hero-copy">From big ideas to unforgettable nights, find the workshops, competitions, and campus moments worth showing up for.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#events">Explore events <span>↗</span></a>
+          <a class="button button-quiet" href="#my-registrations">My registrations <span>→</span></a>
+        </div>
+        <div class="hero-proof">
+          <div class="avatar-stack" aria-hidden="true"><span>👩🏽‍💻</span><span>🎨</span><span>🎸</span><span>⚽</span></div>
+          <p><strong>Find your people.</strong><br><span>Make your college days count.</span></p>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Campus event highlights">
+        <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
+        <div class="art-card art-card-main">
+          <div class="art-topline"><span>FEATURED EXPERIENCE</span><span class="art-spark">✳</span></div>
+          <div class="art-visual">
+            <div class="sun"></div><div class="mountain mountain-back"></div><div class="mountain mountain-front"></div>
+            <div class="stage-light light-left"></div><div class="stage-light light-right"></div>
+            <div class="crowd"></div>
+          </div>
+          <div class="art-card-bottom"><div><span class="mini-label">CULTURE · MUSIC</span><h3>Afterglow '26</h3></div><span class="round-arrow">↗</span></div>
+        </div>
+        <div class="floating-note note-top"><span class="note-icon purple">✦</span><span><strong>Discover more</strong><small>Something for everyone</small></span></div>
+        <div class="floating-note note-bottom"><span class="note-icon yellow">✓</span><span><strong>One quick signup</strong><small>Save your spot in seconds</small></span></div>
+        <span class="decor-star star-one">✳</span><span class="decor-star star-two">✦</span>
+      </div>
+      <div class="hero-bottom"><span>SCROLL TO EXPLORE</span><span class="scroll-line"></span><span>01 / CAMPUS LIFE</span></div>
+    </section>
+
+    <section class="stats-strip" aria-label="Event hub highlights">
+      <div><strong id="eventStat">08</strong><span>Upcoming events</span></div>
+      <div><strong>04</strong><span>Ways to get involved</span></div>
+      <div><strong>∞</strong><span>Memories to make</span></div>
+      <p>Your next campus story starts here <span>↗</span></p>
+    </section>
+
+    <section class="events-section section-wrap" id="events">
+      <div class="section-heading">
+        <div><div class="eyebrow section-eyebrow">THE CAMPUS CALENDAR</div><h2>Find your <em>thing.</em></h2><p class="section-intro">Good people. Great ideas. A calendar full of possibilities.</p></div>
+        <div class="event-tools">
+          <label class="search-box"><span aria-hidden="true">⌕</span><input type="search" id="eventSearch" placeholder="Search events..." aria-label="Search events"></label>
+          <label class="sr-only" for="categoryFilter">Filter by category</label>
+          <select id="categoryFilter" class="category-select"><option value="all">All categories</option><option value="Technology">Technology</option><option value="Culture">Culture</option><option value="Career">Career</option><option value="Sports">Sports</option><option value="Wellness">Wellness</option><option value="Business">Business</option><option value="Creative">Creative</option></select>
+          <label class="sr-only" for="sortFilter">Sort events by date</label><select id="sortFilter" class="category-select"><option value="soonest">Date: soonest</option><option value="latest">Date: latest</option></select>
+        </div>
+      </div>
+      <div class="category-pills" id="categoryPills">
+        <button class="filter-pill active" data-category="all">All events <span>08</span></button>
+        <button class="filter-pill" data-category="Technology">Technology</button>
+        <button class="filter-pill" data-category="Culture">Culture</button>
+        <button class="filter-pill" data-category="Career">Career</button>
+        <button class="filter-pill" data-category="Sports">Sports</button>
+        <button class="filter-pill" data-category="Wellness">Wellness</button>
+        <button class="filter-pill" data-category="Business">Business</button>
+        <button class="filter-pill" data-category="Creative">Creative</button>
+      </div>
+      <div class="event-grid" id="eventGrid" aria-live="polite"></div>
+      <div class="empty-state hidden" id="emptyState"><div>⌕</div><h3>No events found</h3><p>Try another search or category.</p><button class="button button-outline" id="clearFilters">Clear filters</button></div>
+    </section>
+
+    <section class="feature-banner section-wrap" id="about">
+      <div class="banner-icon">✳</div>
+      <div><div class="eyebrow">MORE THAN A CALENDAR</div><h2>College is what<br><em>you make of it.</em></h2></div>
+      <p>Try something new, meet your future collaborators, or cheer on your friends. Campus Event Hub brings the best of campus life together in one place.</p>
+      <a href="#events" class="banner-link">Find your next experience <span>↗</span></a>
+    </section>
+
+    <section class="registrations-section section-wrap" id="my-registrations">
+      <div class="section-heading registration-heading">
+        <div><div class="eyebrow section-eyebrow">YOUR CAMPUS PLANS</div><h2>My <em>registrations.</em></h2><p class="section-intro">The events you signed up for, all in one place.</p></div>
+        <span class="registration-total" id="registrationTotal">0 registrations</span>
+      </div>
+      <div class="registrations-list" id="registrationsList"></div>
+      <div class="registrations-empty" id="registrationsEmpty"><span>✳</span><h3>Your next adventure is waiting.</h3><p>You haven't registered for an event yet. Find something you love and save your spot.</p><a href="#events" class="button button-primary">Explore events <span>↗</span></a></div>
+    </section>
+
+    <section class="newsletter section-wrap">
+      <div><div class="eyebrow">STAY IN THE LOOP</div><h2>Good things are <em>happening.</em></h2><p>Check back often for new events and campus announcements.</p></div>
+      <a href="#events" class="button button-light">See what's coming <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#home"><span class="brand-mark">C<span>+</span></span><span>campus<span class="brand-light">event hub</span></span></a>
+    <p>Made for campus life. Built for what’s next.</p>
+    <span>FRONTEND PROTOTYPE · 2026</span>
+  </footer>
+
+
+  <dialog class="register-dialog" id="detailsDialog" aria-labelledby="detailsDialogTitle">
+    <div id="detailsDialogContent"></div>
+  </dialog>
+
+  <dialog class="register-dialog" id="registerDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-header"><div><div class="eyebrow section-eyebrow">SAVE YOUR SPOT</div><h2 id="dialogTitle">Join the <em>experience.</em></h2></div><button class="dialog-close" id="closeDialog" aria-label="Close registration form">×</button></div>
+    <p class="dialog-event-name" id="dialogEventName"></p>
+    <form id="registrationForm">
+      <input type="hidden" id="registrationEventId" name="eventId">
+      <div class="form-row"><label for="studentName">Full name <span>*</span></label><input id="studentName" name="studentName" type="text" placeholder="e.g. Aditi Sharma" required minlength="2" maxlength="70"></div>
+      <div class="form-row"><label for="studentEmail">College email <span>*</span></label><input id="studentEmail" name="studentEmail" type="email" placeholder="you@college.edu" required maxlength="120"></div>
+      <div class="form-row"><label for="studentId">Student ID <span>*</span></label><input id="studentId" name="studentId" type="text" placeholder="e.g. PCU24CS067" required minlength="3" maxlength="30"></div>
+      <div class="form-row"><label for="studentDepartment">Department <span>*</span></label><select id="studentDepartment" name="department" required><option value="">Choose your department</option><option>Computer Science</option><option>Information Technology</option><option>Electronics</option><option>Mechanical Engineering</option><option>Civil Engineering</option><option>Business / Management</option><option>Arts & Humanities</option><option>Other</option></select></div>
+      <label class="consent-row"><input type="checkbox" id="consent" required><span>I confirm these details are correct and want to register for this event.</span></label>
+      <p class="form-error" id="formError" role="alert"></p>
+      <button class="button button-primary form-submit" type="submit">Confirm registration <span>↗</span></button>
+      <p class="form-note">Prototype only: your details stay in this browser on this device.</p>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
